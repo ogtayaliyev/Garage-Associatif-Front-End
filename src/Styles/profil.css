@@ -1,0 +1,38 @@
+.profil .image-ronde{
+    background-size : contain;
+    background-position : 50% 50%;
+    display : inline-block;
+    width : 150px; height : 150px;
+    border: none;
+    -moz-border-radius : 75px;
+    -webkit-border-radius : 75px;
+    border-radius : 75px;
+}
+.profil .about::before {
+    background-image :none !important;
+}
+.profil .btn-container{
+    padding-top: 50px;
+}
+
+.profil .btn {
+    display: inline-block;
+    background-color: var(--international-orange-engineering);
+    color: var(--white);
+    width: 250px;
+    /* Définir une largeur fixe pour tous les boutons */
+    height: 70px;
+    /* Définir une hauteur fixe pour tous les boutons */
+    font-family: var(--ff-chakra-petch);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    line-height: 30px;
+    /* Assurez-vous que la hauteur de ligne est la même que la hauteur du bouton */
+    text-align: center;
+    /* Centrer le texte horizontalement */
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    transition: var(--transition);
+    will-change: transform;
+    margin-bottom: 20px;
+}

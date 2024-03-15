@@ -1,0 +1,66 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    margin-top: 50px;
+    /* Ajustez la marge supérieure selon vos besoins
+
+    */
+}
+
+.pane {
+    max-width: 340px;
+    margin: 20px;
+    /* Ajustez la marge selon vos besoins */
+    padding: 50px;
+    /* Ajustez le rembourrage selon vos besoins */
+    box-sizing: border-box;
+    border: 2px solid #1A2642;
+}
+
+
+
+.pane form {
+    margin-top: 20px;
+    /* Ajustez la marge supérieure du formulaire selon vos besoins */
+}
+
+.separator {
+    max-height: 600px;
+}
+
+
+
+form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+.hero-banner img{
+    width: 40% !important;
+}
+
+.hero-banner img {
+    width: 30%;
+}
+@media (max-width:575px) {
+    .separator{
+        display: none !important;}
+
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .separator2 {
+        width: 80%;
+    }
+}

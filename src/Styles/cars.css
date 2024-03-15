@@ -1,0 +1,84 @@
+.cars{
+    background-color: var(--oxford-blue-2);
+    color: var(--sonic-silver);
+}
+
+
+.heading {
+    text-align: center;
+    margin-top: 4rem;
+    font-family: var(--ff-chakra-petch);
+    font-size: 4rem;
+    color: var(--white);
+}
+
+
+.properties {
+    border-radius: 2rem;
+}
+
+.properties-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    gap: 3rem;
+    padding: 0 50px;
+    font-family: var(--ff-chakra-petch);
+    color: var(--white);
+}
+
+.properties-container .box {
+    
+    padding: 10px;
+    border-radius: 1rem;
+}
+
+.properties-container .box:hover {
+    transform: translateY(-10px);
+    transition: 0.5s;
+
+}
+
+.properties-container .box img {
+    border-radius: 1rem;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.properties-container .box h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    float: right;
+}
+
+.properties-container .box .content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.properties-container .box .content .text h3 {
+    font-weight: 800;
+}
+
+.properties-container .box .content .text p {
+    font-size: 0.8rem;
+}
+
+.properties-container .box .content .icon .icon {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.properties-container .box .content .icon .bx {
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+}
+
+.properties-container .box .content .icon .span {
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 4px;
+}
