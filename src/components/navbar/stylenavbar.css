@@ -1,0 +1,32 @@
+.user-menu {
+    position: relative;
+}
+
+.user-menu:hover .user-dropdown-menu {
+    display: block;
+}
+
+.user-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user-dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-dropdown-menu ul li {
+    cursor: pointer;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.user-dropdown-menu ul li:hover {
+    text-decoration: underline;
+}
