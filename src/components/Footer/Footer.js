@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="footer-top section">
                 <div className="container">
                     <div className="footer-brand">
-                        <a href="./Pages/home.html" className="logo">
+                        <a href="/main" className="logo">
                             <img src={logo} style={{width: '128', height: '63'}} alt="mnsgarage home"/>
                         </a>
 
@@ -66,7 +66,7 @@ const Footer = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="mailto:info@mnsgarage.com" className="footer-link">
+                            <a href="mailto:info@mnsgarage.fr" className="footer-link">
                                 <span className="material-symbols-rounded">mail</span>
                                 <span className="span">info@mnsgarage.fr</span>
                             </a>

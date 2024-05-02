@@ -43,7 +43,7 @@ const Cars = () => {
                         </div>
 
                         <div className="box">
-                            <img src={img2} alt=""/>
+                            <img src="https://drive.google.com/file/d/1zqmHIZ43LxZXIcDh_tpdx2qVTidYsThb/view?usp=sharing" alt=""/>
                             <h3>170.000 km</h3>
                             <div className="content">
                                 <div className="text">

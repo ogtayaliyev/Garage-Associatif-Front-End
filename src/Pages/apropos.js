@@ -1,6 +1,5 @@
 import React from 'react';
 import hero from "../img/herobg.jpg";
-import herobaner from "../img/herobanner.png";
 import image30 from "../img/image-30.png";
 import herobanner from "../img/herobanner.png";
 import "../Styles/apropos.css"

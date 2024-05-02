@@ -34,7 +34,7 @@ const Main = () => {
 
                             </p>
 
-                            <a href="/reservationoutils" className="btn">
+                            <a href="/src/Pages/garagebox" className="btn">
                                 <span className="span">location outils</span>
                                 <span className="material-symbols-rounded"></span>
                             </a>
@@ -250,7 +250,7 @@ const Main = () => {
                                     <div className="card-content">
                                         <p className="card-subtitle">Garage Associaetif</p>
                                         <h3 className="h3 card-title">Location Outils</h3>
-                                        <a href="/reservationoutils" className="card-btn">
+                                        <a href="/src/Pages/garagebox" className="card-btn">
                                             <span className="material-symbols-rounded">-></span>
                                         </a>
                                     </div>

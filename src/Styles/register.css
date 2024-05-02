@@ -6,42 +6,45 @@
 
     text-align: center;
     margin-top: 50px;
-    /* Ajustez la marge supérieure selon vos besoins
-
-    */
 }
 
 .pane {
     max-width: 340px;
     margin: 20px;
-    /* Ajustez la marge selon vos besoins */
     padding: 50px;
-    /* Ajustez le rembourrage selon vos besoins */
     box-sizing: border-box;
-    border: 2px solid #1A2642;
+    border: 2px solid #f60b0b;
 }
 
 
+/* Style pour les champs de formulaire */
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
 
-.pane form {
-    margin-top: 20px;
-    /* Ajustez la marge supérieure du formulaire selon vos besoins */
+/* Style pour les divs contenant les champs de formulaire */
+.password-input {
+    position: relative;
+}
+
+/* Style pour l'icône de bascule du mot de passe */
+.password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .separator {
     max-height: 600px;
-}
-
-
-
-form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column
 }
 
 .hero-banner img{
@@ -50,6 +53,12 @@ form {
 
 .hero-banner img {
     width: 30%;
+}
+
+
+i:hover {
+    color: #00fcb6;
+    cursor: pointer;
 }
 @media (max-width:575px) {
     .separator{

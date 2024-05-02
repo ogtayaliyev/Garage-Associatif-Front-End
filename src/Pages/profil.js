@@ -34,7 +34,14 @@ const Profil = () => {
         };
 
         fetchUserData();
-    }, []);
+    }, [navigate]);
+    const logout = () => {
+        // Local Storage'dan JWT token'ı sil
+        localStorage.removeItem('jwtToken');
+
+        // Kullanıcıyı yönlendir
+        window.location.href = "/home";
+    };
     return (
         <main className="profil">
             <article>
@@ -53,6 +60,7 @@ const Profil = () => {
                     <div className="container">
                         <div className="about-content">
                             <p className="section-subtitle dark">Profil</p>
+                            {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                             <img className="image-ronde" src={th} alt="photo de profil utilisateur"/>
                             <ul className="section-subtitle">
                                 <li>Nom: {user?.nom || 'N/A'}</li>
@@ -62,13 +70,14 @@ const Profil = () => {
                                 <li>Mail : {user?.email || 'N/A'}</li>
 
                             </ul>
+                            <button className="btn" onClick={logout}>Log Out</button>
                         </div>
                         <div className="btn-container">
-                            <a href="#" className="btn">
+                            <a href="/garagebox" className="btn">
                                 <span className="span">Location</span>
                             </a>
                             <br/>
-                            <a href="#" className="btn">
+                            <a href="/reservationentretien" className="btn">
                                 <span className="span">Entretien</span>
                             </a>
                             <br/>
@@ -76,9 +85,10 @@ const Profil = () => {
                                 <span className="span">Contact</span>
                             </a>
                             <br/>
-                            <a href="#" className="btn">
+                            <a href="/modif" className="btn">
                                 <span className="span">Modifier</span>
                             </a>
+
                         </div>
                     </div>
                 </section>

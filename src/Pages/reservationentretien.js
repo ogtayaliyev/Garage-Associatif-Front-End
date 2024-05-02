@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {useHistory} from  'react-router-dom'
 import axios from 'axios';
 import "../Styles/style.css";
 import "../Styles/register.css";
