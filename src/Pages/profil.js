@@ -35,13 +35,15 @@ const Profil = () => {
 
         fetchUserData();
     }, [navigate]);
+
     const logout = () => {
         // Local Storage'dan JWT token'ı sil
         localStorage.removeItem('jwtToken');
-
         // Kullanıcıyı yönlendir
         window.location.href = "/home";
     };
+
+
     return (
         <main className="profil">
             <article>

@@ -1,7 +1,10 @@
 import React from 'react';
 import gar5 from "../img/gar5.jpg";
 import herobanner from "../img/herobanner.png";
-import CarEdit from "../components/Car/CarEdit";
+import Edit from "../components/Mofication/edit";
+import CarEdit from "../components/Mofication/CarEdit";
+import "../Styles/modif.css"
+import separator from "../img/separator.png";
 
 const Modif = () => {
     return (
@@ -19,7 +22,9 @@ const Modif = () => {
                     </div>
                 </section>
                 <section id="about" className="section about has-before" aria-labelledby="about-label">
-                    <div>
+                    <div className="principal">
+                        <Edit/>
+                        <img className="separator" src={separator} alt="Separateur horizantal"/>
                         <CarEdit/>
 
                     </div>
