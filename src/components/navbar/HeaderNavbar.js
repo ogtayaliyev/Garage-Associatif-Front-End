@@ -33,6 +33,7 @@ const HeaderNavbar = () => {
         // Supprimer le token JWT du localStorage
         localStorage.removeItem('bearer');
         // Mettre à jour l'état de connexion pour afficher le bouton "Mon compte"
+        window.location.href = '/register';
         setIsLoggedIn(false);
     };
 

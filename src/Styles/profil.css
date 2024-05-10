@@ -14,25 +14,31 @@
 .profil .btn-container{
     padding-top: 50px;
 }
+.profil .list{
+
+    color: #f60b0b;
+    font-family: var(--ff-chakra-petch);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    line-height: 30px;
+    line-height: 30px;
+}
 
 .profil .btn {
     display: inline-block;
     background-color: var(--international-orange-engineering);
     color: var(--white);
-    width: 250px;
-    /* Définir une largeur fixe pour tous les boutons */
+    width: 150px;
     height: 70px;
-    /* Définir une hauteur fixe pour tous les boutons */
     font-family: var(--ff-chakra-petch);
     font-weight: var(--fw-600);
     text-transform: uppercase;
-    line-height: 30px;
-    /* Assurez-vous que la hauteur de ligne est la même que la hauteur du bouton */
     text-align: center;
-    /* Centrer le texte horizontalement */
     border: 1px solid transparent;
     border-radius: var(--radius-pill);
     transition: var(--transition);
     will-change: transform;
     margin-bottom: 20px;
+    /* Centrer le texte verticalement */
+    line-height: 40px; /* Hauteur du bouton */
 }

@@ -15,7 +15,12 @@
     box-sizing: border-box;
     border: 2px solid #f60b0b;
 }
-
+.forgot :hover{
+    transform: translateY(-5px);
+    background-color: var(--international-orange-engineering);
+    border-color: var(--white);
+   color: #f0f0f0;
+}
 
 /* Style pour les champs de formulaire */
 input[type='text'],

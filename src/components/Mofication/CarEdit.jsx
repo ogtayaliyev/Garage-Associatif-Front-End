@@ -31,7 +31,7 @@ function CarEdit(props) {
         }
         
     });
-        console.log('Voiture ajoutée avec succès:', response.data);
+        alert('Voiture ajoutée avec succès:', response.data);
     }
 
     useEffect(() => {

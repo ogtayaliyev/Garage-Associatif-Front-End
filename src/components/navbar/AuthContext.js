@@ -16,9 +16,13 @@ export const AuthProvider = ({ children }) => {
         setIsLoggedIn(false);
     };
 
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
-            {children}
+            {children}{refreshPage}
         </AuthContext.Provider>
     );
 };

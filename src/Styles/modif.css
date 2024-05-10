@@ -1,9 +1,16 @@
+/* Styles par défaut */
+
+/* Conteneur parent */
+.modif .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Styles pour .form-container */
 .form-container {
     max-width: 300px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .form-container label {
@@ -14,7 +21,7 @@
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container textarea {
-    width: 100%; /* Utilisez une largeur de 100% pour tous les inputs et textareas */
+    width: 100%;
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -39,12 +46,22 @@
     color: red;
 }
 
-.principal{
-    display: flex;
-    flex-direction: row;
-    
-}
-.car-container{
+/* Styles pour .car-container */
+.car-container {
     max-width: 300px;
-    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+/* Media queries pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Pour empiler les éléments sur les écrans plus petits */
+    }
+
+    .form-container,
+    .car-container {
+        max-width: 100%; /* Ajustement de la largeur maximale pour s'adapter à la largeur de l'écran */
+        margin-left: 0; /* Supprimer la marge à gauche pour que les éléments empilés soient centrés */
+    }
 }

@@ -1,111 +1,152 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import "../Styles/style.css";
-import "../Styles/register.css";
+import React from 'react';
 import gar5 from "../img/gar5.jpg";
 import herobanner from "../img/herobanner.png";
 import servicebg from "../img/servicebg.jpg";
-import separator from "../img/separator.png";
+import services1 from "../img/services1.png";
+import services2 from "../img/services2.png";
+import services3 from "../img/services3.png";
+import services4 from "../img/services4.png";
+import services5 from "../img/services5.png";
+import services6 from "../img/services6.png";
+import hero from "../img/herobg.jpg";
+import aboutbanner from "../img/aboutbanner.png";
+import work1 from "../img/work1.jpg";
+import work2 from "../img/work2.jpg";
+import work3 from "../img/Citroen.jpg";
+import Reservation from "../components/Entretien/Reservation";
 
-const Register = () => {
-    const [nom, setNom] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    async function save(event) {
-        event.preventDefault();
-        try {
-            await axios.post("http://localhost:8080/api/inscription", {
-                nom: nom,
-                email: email,
-                password: password,
-            });
-            alert("Employee Registration Successful");
-        } catch (err) {
-            alert(err);
-        }
-    }
-
-    async function login(event) {
-        event.preventDefault();
-        try {
-            const res = await axios.post("http://localhost:8080/api/connexion", {
-                email: email,
-                password: password,
-            });
-            console.log(res.data);
-
-            if (res.data.message === "Email not exists") {
-                alert("Email not exists");
-            } else if (res.data.message === "Login Success") {
-                login.push('/home'); // Rediriger vers la page d'accueil après connexion réussie
-            } else {
-                alert("Incorrect Email and Password not match");
-            }
-        } catch (err) {
-            alert(err);
-        }
-    }
-
+const Reservationentretien = () => {
     return (
         <main>
             <article>
-                <section className="hero has-bg-image" aria-label="home" style={{ backgroundImage: `url(${gar5})` }} id="home">
+
+                <section className="hero has-bg-image" aria-label="home" style={{backgroundImage: `url(${gar5})`}}
+                         id="home">
                     <div className="container">
                         <div className="hero-content">
                             <p className="section-text"></p>
                         </div>
-                        <figure className="hero-banner" style={{ width: '1228px', height: '789px' }}>
-                            <img src={herobanner} style={{ width: '28px', height: '9px' }} alt="red motor vehicle" />
+                        <figure className="hero-banner" style={{width: '1228', height: '789'}}>
+                            <img src={herobanner} style={{width: '28', height: '9'}} alt="red motor vehicle"/>
                         </figure>
                     </div>
                 </section>
-                <section className="section service has-bg-image" aria-labelledby="service-label" style={{ backgroundImage: `url(${servicebg})` }} id="services">
-                    <div className="content">
 
-                        <div id="login" className="pane">
-                            <h1>Log In</h1>
-                            <form onSubmit={login}>
-                                <label>
-                                    Email
-                                </label>
-                                <input type="email" required autoComplete="off" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                <label>
-                                    Password
-                                </label>
-                                <input type="password" required autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <h3 className="forgot"><a href="#">Forgot Password?</a></h3>
-                                <button type="submit" className="btn btn-primary">Log In</button>
-                            </form>
-                        </div>
+                <section className="section service has-bg-image" aria-labelledby="service-label"
+                         style={{backgroundImage: `url(${servicebg})`}} id="home">
+                    <div className="container">
+                        <p className="section-subtitle :light" id="service-label">
+                            Nos Services
+                        </p>
+                        <h2 className="h2 section-title">
+                            Nous fournissons d'excellents services pour votre véhicule
+                        </h2>
 
-                        <img className="separator" src={separator} alt="Separateure horizantal" />
-                        {/*<img className="separator2" src="./assets/images/Fram55.png" alt="separature vertical"/>*/}
+                        <ul className="service-list">
+                            <li>
+                                <div className="service-card">
+                                    <figure className="card-icon">
+                                        <img src={services1} style={{width: '110', height: '110'}}
+                                             loading="lazy"
+                                             alt="Engine Repair"/>
+                                    </figure>
 
-                        <div id="signup" className="pane">
-                            <h1>Sign Up</h1>
-                            <form onSubmit={save}>
-                                <label>
-                                    Name
-                                </label>
-                                <input type="text" required autoComplete="off" value={nom} onChange={(e) => setNom(e.target.value)} />
-                                <label>
-                                    Email
-                                </label>
-                                <input type="email" required autoComplete="off" value={email} onChange={(e) => setEmail(e.target.value)} />
-                                <label>
-                                    Set Password
-                                </label>
-                                <input type="password" required autoComplete="off" value={password} onChange={(e) => setPassword(e.target.value)} />
-                                <h3 className="forgot">Veuillez remplir tous les champs formulaire</h3>
-                                <button type="submit" className="btn btn-primary">Sign Up</button>
-                            </form>
-                        </div>
+                                    <h3 className="h3 card-title">Réparation de Moteur</h3>
+
+                                    <p className="card-text">
+                                        Durée de la réparation du moteur : <span style={{color:"red"}}><b>3 heures</b></span>
+                                    </p>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <div className="service-card">
+                                    <figure className="card-icon">
+                                        <img src={services2} style={{width: '110', height: '110'}}
+                                             loading="lazy"
+                                             alt="Brake Repair"/>
+                                    </figure>
+
+                                    <h3 className="h3 card-title">Diagnostic</h3>
+
+                                    <p className="card-text">
+                                        Durée du diagnostic : <span style={{color:"red"}}> <b>40 minutes</b> </span>
+                                    </p>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <div className="service-card">
+                                    <figure className="card-icon">
+                                        <img src={services3} style={{width: '110', height: '110'}}
+                                             loading="lazy" alt="Tire Repair"/>
+                                    </figure>
+
+                                    <h3 className="h3 card-title">Pneumatiques</h3>
+
+                                    <p className="card-text">
+                                        Durée du changement de pneus :<span style={{color:"red"}}><b>60 minutes</b></span>
+                                    </p>
+
+
+                                </div>
+                            </li>
+
+                            <li>
+                                <div className="service-card">
+                                    <figure className="card-icon">
+                                        <img src={services4} style={{width: '110', height: '110'}}
+                                             loading="lazy"
+                                             alt="Battery Repair"/>
+                                    </figure>
+
+                                    <h3 className="h3 card-title">Service Electricien</h3>
+
+                                    <p className="card-text">
+                                        Durée du service de l'électricien : <span style={{color:"red"}}><b>1 heure et 30 minutes</b></span>
+                                    </p>
+
+
+                                </div>
+                            </li>
+
+                            <li className="service-banner">
+                                <img src={services5} style={{width: '646', height: '380'}} loading="lazy"
+                                     alt="Red Car"
+                                     className="move-anim"/>
+                            </li>
+
+                            <li>
+                                <div className="service-card">
+                                    <figure className="card-icon">
+                                        <img src={services6} style={{width: '110', height: '110'}}
+                                             loading="lazy"
+                                             alt="Steering Repair"/>
+                                    </figure>
+
+                                    <h3 className="h3 card-title">Courroie de distribution</h3>
+
+                                    <p className="card-text">
+                                        Durée du changement de courroie de distribution :<span style={{color:"red"}}><b>2 heures</b></span>
+                                    </p>
+
+
+                                </div>
+                            </li>
+                        </ul>
+
+                        <Reservation/>
                     </div>
                 </section>
+
+
             </article>
         </main>
     );
 };
 
-export default Register;
+export default Reservationentretien;

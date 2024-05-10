@@ -34,10 +34,6 @@ const Main = () => {
 
                             </p>
 
-                            <a href="/src/Pages/garagebox" className="btn">
-                                <span className="span">location outils</span>
-                                <span className="material-symbols-rounded"></span>
-                            </a>
                         </div>
 
                         <figure className="hero-banner" style={{width: '1228', height: '789'}}>
@@ -218,8 +214,8 @@ const Main = () => {
 
                 <section id="projects" className="section work" aria-labelledby="work-label">
                     <div className="container">
-                        <p className="section-subtitle :light" id="work-label">Garage Associaetif</p>
-                        <h2 className="h2 section-title">Services Location Vente</h2>
+                        <p className="section-subtitle :light" id="work-label">Garage Associatif</p>
+                        <h2 className="h2 section-title">Services Location, Reparation et Vente</h2>
 
                         <ul className="has-scrollbar">
                             <li className="scrollbar-item">
@@ -231,7 +227,7 @@ const Main = () => {
                                     </figure>
 
                                     <div className="card-content">
-                                        <p className="card-subtitle">Garage Associaetif</p>
+                                        <p className="card-subtitle">Garage Associatif</p>
                                         <h3 className="h3 card-title">Location garage</h3>
                                         <a href="/cars" className="card-btn">
                                             <span className="material-symbols-rounded">-></span>
@@ -248,7 +244,7 @@ const Main = () => {
                                     </figure>
 
                                     <div className="card-content">
-                                        <p className="card-subtitle">Garage Associaetif</p>
+                                        <p className="card-subtitle">Garage Associatif</p>
                                         <h3 className="h3 card-title">Location Outils</h3>
                                         <a href="/src/Pages/garagebox" className="card-btn">
                                             <span className="material-symbols-rounded">-></span>

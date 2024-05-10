@@ -12,6 +12,7 @@ import Cars from "./Pages/cars";
 import Garagebox from "./Pages/garagebox";
 import Reservationentretien from "./Pages/reservationentretien";
 import Modif from "./Pages/modif";
+import Forgotpassword from "./Pages/forgotpassword";
 
 
 
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/cars" element={<Cars/>} />
                     <Route path="/reservationentretien" element={<Reservationentretien/>} />
                     <Route path="/garagebox" element={<Garagebox/>} />
+                    <Route path="/forgotpassword" element={<Forgotpassword/>} />
                     <Route path="/" element={<Navigate to="/home" replace />} />
                 </Routes>
             </Router>
