@@ -1,25 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FaTimes } from 'react-icons/fa';
+import { FaEuroSign } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+
+
 
 import "../Styles/profil.css";
 import herobanner from "../img/herobanner.png";
 import gar5 from "../img/gar5.jpg";
-import th from "../img/th.jpeg";
+import car from "../img/oktay.png";
+import profilcar from"../img/rectangle-800.png"
 
 const Profil = () => {
     const [user, setUser] = useState(null);
     const [selectedCar, setSelectedCar] = useState('');
     const [selectedCarData, setSelectedCarData] = useState(null);
     const [selectedLocationBox, setSelectedLocationBox] = useState('');
+    const [selectedEntretien,setSelectedEntretien]=useState('');
+    const [selectedEntretienData,setSelectedEntretienData]=useState(null)
     const [selectedLocationBoxData, setSelectedLocationBoxData] = useState(null);
     const navigate = useNavigate();
+    const [carModalVisible, setCarModalVisible] = useState(false);
+    const [locationModalVisible, setLocationModalVisible] = useState(false);
+    const [entretienModalVisible,setEntretienModalVisible]=useState(false)
+
+
+
 
     const handleCarChange = event => {
         const selectedPlaque = event.target.value;
         setSelectedCar(selectedPlaque);
         const selectedCarInfo = user?.voitures.find(car => car.plaqueImmatriculation === selectedPlaque);
         setSelectedCarData(selectedCarInfo);
+
+        setCarModalVisible(true);
+        setSelectedLocationBoxData(false)
+        setEntretienModalVisible(false)
     };
 
     const handleLocationBoxChange = event => {
@@ -27,7 +45,27 @@ const Profil = () => {
         setSelectedLocationBox(selectedDate );
         const selectedLocationBoxInfo = user?.locationBoxes.find(box => box.startDate === selectedDate || box.returnDate === selectedDate);
         setSelectedLocationBoxData(selectedLocationBoxInfo);
+        setLocationModalVisible(true);
+        setCarModalVisible(false);
+        setEntretienModalVisible(false)
     };
+
+    const handleEntretienChange = event => {
+        const selectedDate = event.target.value;
+        setSelectedEntretien(selectedDate);
+        const selectedEntretienInfo = user?.reparations.find(reparation => {
+            // Seçilen tarihi herhangi bir başlangıç veya bitiş tarihi ile eşleştir
+            return (
+                reparation.startDate === selectedDate ||
+                reparation.endDate === selectedDate
+            );
+        });
+        setSelectedEntretienData(selectedEntretienInfo);
+        setEntretienModalVisible(true);
+        setCarModalVisible(false);
+        setLocationModalVisible(false);
+    };
+
 
 
     useEffect(() => {
@@ -79,7 +117,115 @@ const Profil = () => {
 
     return (
         <main className="profil">
-            <article >
+
+            <div className="modal" style={{display: carModalVisible ? 'flex' : 'none'}}>
+                <div className="modal-content">
+
+                    <img src={profilcar} alt=""/>
+                    {selectedCarData && (
+                        <div className='container'>
+                            <h3>Informations sur la voiture sélectionnée:</h3>
+                            <label>
+                                Kilométrage:
+                                <p>{selectedCarData.kilometrage}</p>
+                            </label>
+                            <label>
+                                Carburant:
+                                <p>{selectedCarData.carburant}</p>
+                            </label>
+                            <label>
+                                Boîte:
+                                <p>{selectedCarData.boite}</p>
+                            </label>
+                            <label>
+                                Anne Fabrication:
+                                <p>{selectedCarData.anne_fabrication}</p>
+                            </label>
+                            <label>
+                                Couleur:
+                                <p>{selectedCarData.couleur}</p>
+                            </label>
+                            <label>
+                                Marque:
+                                <p>{selectedCarData.model.marque.marque_nom}</p>
+                            </label>
+                            <label>
+                                Modèle:
+                                <p>{selectedCarData.model.model_nom}</p>
+                            </label>
+
+                        </div>
+                    )}
+
+                    <div className="close-icons-container">
+                        <span className="close-icon" onClick={() => setCarModalVisible(false)}><FaTimes/></span>
+                        <span className="close-icon" onClick={() => {
+                            suprimer(selectedCarData.id)
+                        }}><FaTrash/></span>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div className="modal" style={{display: locationModalVisible ? 'flex' : 'none'}}>
+                <div className="modal-content">
+                    <img src={car} alt=""/>
+                    {selectedLocationBoxData && (
+                        <div className='container'>
+                            <h3>Informations sur la location sélectionnée:</h3>
+                            <label>
+                                Start Date:
+                                <p>{selectedLocationBoxData.startDate}</p>
+                            </label>
+                            <label>
+                                Return Date:
+                                <p>{selectedLocationBoxData.returnDate}</p>
+                            </label>
+                            <label>
+                                Prix de la location:
+                                <p>{selectedLocationBoxData.prix_loc}<FaEuroSign/> Euros</p>
+                            </label>
+                        </div>
+                    )}
+                    <span className="close-icon" onClick={() => setLocationModalVisible(false)}><FaTimes/></span>
+                </div>
+            </div>
+
+            <div className="modal" style={{display: entretienModalVisible ? 'flex' : 'none'}}>
+                <div className="modal-content">
+                    <img src={car} alt=""/>
+                    {selectedEntretienData && (
+                        <div className='container'>
+                            <h3>Informations sur la entretien sélectionnée:</h3>
+                            <label>
+                                Type de réparation:
+                                <p>{selectedEntretienData.reparationType.reparationType}</p>
+                            </label>
+                            <label>
+                                Durée:
+                                <p>{selectedEntretienData.duree} heures</p>
+                            </label>
+                            <label>
+                                Voiture:
+                                <p>{selectedEntretienData.voiture.plaqueImmatriculation}</p>
+                            </label>
+                            <label>
+                                Date de début:
+                                <p>{selectedEntretienData.startDate}</p>
+                            </label>
+                            <label>
+                                Date de fin:
+                                <p>{selectedEntretienData.endDate}</p>
+                            </label>
+                        </div>
+                    )}
+                    <span className="close-icon" onClick={() => setEntretienModalVisible(false)}><FaTimes/></span>
+                </div>
+            </div>
+
+
+            <article>
                 <section className="hero has-bg-image" aria-label="home" style={{backgroundImage: `url(${gar5})`}}
                          id="home">
                     <div className="container">
@@ -96,8 +242,8 @@ const Profil = () => {
                 <section id="about" className="section about has-before" aria-labelledby="about-label">
                     <div className="container">
                         <div className="about-content">
-                            <p className="section-subtitle dark">Profil</p>
-                            <img className="image-ronde" src={th} alt="photo de profil utilisateur"/>
+
+                            <img className="image-ronde" src={car} alt="photo de profil utilisateur"/>
                             <ul className="section-subtitle">
                                 <li>Nom: {user?.nom || 'N/A'}</li>
                                 <li>Prénom: {user?.prenom || 'N/A'}</li>
@@ -118,7 +264,7 @@ const Profil = () => {
                                     ))}
                                 </select>
                             </label>
-                               <br/>
+                            <br/>
                             <label className='list'>
                                 Sélectionnez une location par date:
                                 <br/>
@@ -130,11 +276,25 @@ const Profil = () => {
                                         </option>
                                     ))}
                                 </select>
+                            </label> <br/>
+                            <label className='list'>
+                                Sélectionnez une entretien par date:
+                                <br/>
+                                <select value={selectedEntretien} onChange={handleEntretienChange}>
+                                    <option value="">Sélectionnez votre entretien</option>
+                                    {user?.reparations.map((reparations, index) => (
+                                        <option key={index} value={reparations.startDate}>
+                                            {reparations.startDate}
+                                        </option>
+                                    ))}
+                                </select>
                             </label>
 
                             <br/>
 
                         </div>
+
+
                         <div className="btn-container">
                             <a href="/garagebox" className="btn">
                                 <span className="span">Location</span>
@@ -155,60 +315,7 @@ const Profil = () => {
                             <button className="btn" onClick={logout}>Log Out</button>
                         </div>
                     </div>
-                    {selectedCarData && (
-                        <div className='container'>
-                            <h2>Informations sur la voiture sélectionnée:</h2>
-                            <label>
-                                Kilométrage:
-                                <input type="text" name="kilometrage" value={selectedCarData.kilometrage} readOnly/>
-                            </label>
-                            <label>
-                                Carburant:
-                                <input type="text" name="carburant" value={selectedCarData.carburant} readOnly/>
-                            </label>
-                            <label>
-                                Boîte:
-                                <input type="text" name="boite" value={selectedCarData.boite} readOnly/>
-                            </label>
-                            <label>
-                                Anne Fabrication:
-                                <input type="text" name="anne_fabrication" value={selectedCarData.anne_fabrication}
-                                       readOnly/>
-                            </label>
-                            <label>
-                                Couleur:
-                                <input type="text" name="couleur" value={selectedCarData.couleur} readOnly/>
-                            </label>
-                            <label>
-                                Marque:
-                                <input type="text" name="marque" value={selectedCarData.model.marque.marque_nom}
-                                       readOnly/>
-                            </label>
-                            <label>
-                                Modèle:
-                                <input type="text" name="model" value={selectedCarData.model.model_nom} readOnly/>
-                            </label>
-                            <button className="btn" onClick={() => suprimer(selectedCarData.id)}>Supprimer</button>
 
-                        </div>
-                    )}
-                    {selectedLocationBoxData && (
-                        <div className='container'>
-                            <h2>Informations sur la location sélectionnée:</h2>
-                            <label>
-                                Start Date:
-                                <input type="text" name="startDate" value={selectedLocationBoxData.startDate} readOnly />
-                            </label>
-                            <label>
-                                Return Date:
-                                <input type="text" name="returnDate" value={selectedLocationBoxData.returnDate} readOnly />
-                            </label>
-                            <label>
-                                Prix de la location:
-                                <input type="text" name="prix_loc" value={selectedLocationBoxData.prix_loc} readOnly />
-                            </label>
-                        </div>
-                    )}
                 </section>
 
             </article>
