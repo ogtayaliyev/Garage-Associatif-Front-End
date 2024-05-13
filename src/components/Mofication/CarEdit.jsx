@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { useForm } from "react-hook-form"
 import axios from "axios";
+
 function CarEdit(props) {
     const [carData, setCarData] = useState({
         plaqueImmatriculation: '',
@@ -30,7 +31,7 @@ function CarEdit(props) {
         }
         
     });
-        console.log('Voiture ajoutée avec succès:', response.data);
+        alert('Voiture ajoutée avec succès:', response.data);
     }
 
     useEffect(() => {
@@ -76,6 +77,8 @@ function CarEdit(props) {
 
 
     return (
+
+
         <div className="car-container">
             <h2>Ajouter une voiture</h2>
             <form onSubmit={handleSubmit(onSubmit)}>

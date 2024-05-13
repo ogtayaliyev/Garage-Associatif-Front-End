@@ -15,24 +15,108 @@
     padding-top: 50px;
 }
 
-.profil .btn {
-    display: inline-block;
-    background-color: var(--international-orange-engineering);
-    color: var(--white);
-    width: 250px;
-    /* Définir une largeur fixe pour tous les boutons */
-    height: 70px;
-    /* Définir une hauteur fixe pour tous les boutons */
+
+.modal-content {
+    height: 600px; /* Utilisation de la hauteur automatique pour s'adapter au contenu */
+    width: 80%; /* Largeur modifiée pour s'adapter à différentes tailles d'écrans */
+    max-width: 600px; /* Limitation de la largeur maximale */
+    background-color: #020b3b; /* Changement de la couleur de fond en bleu */
+    box-shadow: rgb(14, 74, 225) 0px 5px 15px;
+    display: flex; /* Utilisation de flexbox pour aligner les éléments */
+    flex-direction: row; /* Alignement horizontal */
+    align-items: center;
+
+}
+
+.modal-content img {
+
+    border-radius: 25%;
+    width: 30%; /* Définition de la largeur de l'image */
+    max-height: 200px; /* Ajustement automatique de la hauteur de l'image */
+    object-fit: cover; /* Redimensionnement proportionnel de l'image */
+}
+
+
+.modal-content label {
+color: white;
+    margin-bottom: 10px; /* Espacement entre les labels */
+}
+
+.modal-content p {
+    color: #f60b0b;
+   font-size: 1.5rem;
+    margin-left: 10px; /* Espacement entre les paragraphes et les labels */
+    background-color: white;
+    padding: 10px; /* İstediğiniz dolgu miktarını ayarlayın */
+    border-radius: 5px; /* Köşeleri yuvarlatır */
+}
+.modal-content h3{
+    color: white;
+}
+
+
+.close-icons-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.close-icon {
+    font-size: 4rem; /* İkon boyutunu arttırın */
+}
+
+.close-icon:hover {
+    color: red;
+}
+
+
+.modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+
+.profil .list{
+
+    color: #f60b0b;
     font-family: var(--ff-chakra-petch);
     font-weight: var(--fw-600);
     text-transform: uppercase;
     line-height: 30px;
-    /* Assurez-vous que la hauteur de ligne est la même que la hauteur du bouton */
+    line-height: 30px;
+}
+
+.profil .btn {
+    display: inline-block;
+    background-color: var(--international-orange-engineering);
+    color: var(--white);
+    width: 150px;
+    height: 70px;
+    font-family: var(--ff-chakra-petch);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
     text-align: center;
-    /* Centrer le texte horizontalement */
     border: 1px solid transparent;
     border-radius: var(--radius-pill);
     transition: var(--transition);
     will-change: transform;
     margin-bottom: 20px;
+    /* Centrer le texte verticalement */
+    line-height: 40px; /* Hauteur du bouton */
+}
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Açık gri bir arka plan */
+    z-index: 9998; /* Modaldan bir seviye altta */
 }

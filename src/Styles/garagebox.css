@@ -41,7 +41,24 @@
     cursor: pointer;
     width: 0%;
 }
+.boxes-grid {
 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Utilisation de auto-fit pour ajuster dynamiquement la largeur des colonnes */
+    gap: 20px; /* Ajustez selon vos besoins */
+}
+
+.box-image {
+    width: 400px; /* Pour s'adapter dynamiquement à la taille du conteneur */
+    height: 200px; /* Pour conserver les proportions */
+    cursor: pointer;
+    padding-left: 40px;
+
+}
+
+.box-image :hover{
+
+}
 @media screen and (max-width: 600px) {
     .input2 {
         width: 100%;

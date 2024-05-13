@@ -1,7 +1,7 @@
 
 :root {
   /* colors */
-  --international-orange-engineering: hsl(1, 91%, 37%);
+  --international-orange-engineering: hsl(1, 98%, 49%);
   --cadet-blue-creyola: hsl(222, 14%, 69%);
   --oxford-blue-1: hsl(222, 47%, 15%);
   --oxford-blue-2: hsl(222, 44%, 14%);
@@ -1106,7 +1106,7 @@ body {
 
   .service-banner img {
     width: max-content;
-    left: -41%;
+    left: -25%;
   }
 
   /* #WORK */

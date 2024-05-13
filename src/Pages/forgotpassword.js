@@ -1,14 +1,13 @@
 import React from 'react';
 import gar5 from "../img/gar5.jpg";
 import herobanner from "../img/herobanner.png";
-import Edit from "../components/Mofication/edit";
-import CarEdit from "../components/Mofication/CarEdit";
-import "../Styles/modif.css"
-import separator from "../img/separator.png";
+import servicebg from "../img/servicebg.jpg";
+import ModifMdp from "../components/Mdp/modifMdp";
+import "../Styles/forgotpassword.css"
 
-const Modif = () => {
+const Forgotpassword = () => {
     return (
-        <main className="contact">
+        <main>
             <article>
                 <section className="hero has-bg-image" aria-label="home" style={{backgroundImage: `url(${gar5})`}}
                          id="home">
@@ -21,16 +20,13 @@ const Modif = () => {
                         </figure>
                     </div>
                 </section>
-                <section id="about" className="section about has-before" aria-labelledby="about-label">
-                    <div className="container">
-                        <Edit/>
-                        <CarEdit/>
-
-                    </div>
+                <section className="section service has-bg-image" aria-labelledby="service-label"
+                         style={{backgroundImage: `url(${servicebg})`}} id="services">
+                     <ModifMdp/>
                 </section>
             </article>
         </main>
     );
 };
 
-export default Modif;
+export default Forgotpassword;
