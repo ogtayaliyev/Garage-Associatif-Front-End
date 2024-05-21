@@ -15,7 +15,6 @@
     padding-top: 50px;
 }
 
-
 .modal-content {
     height: 600px; /* Utilisation de la hauteur automatique pour s'adapter au contenu */
     width: 80%; /* Largeur modifiée pour s'adapter à différentes tailles d'écrans */
@@ -120,3 +119,57 @@ color: white;
     background-color: rgba(0, 0, 0, 0.7); /* Açık gri bir arka plan */
     z-index: 9998; /* Modaldan bir seviye altta */
 }
+/* Pour les grands écrans */
+.inf-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 960px;
+    margin: 0 auto; /* Pour centrer le conteneur */
+    margin-top: 30px;
+    font-family: var(--ff-chakra-petch);
+}
+
+.inf-card {
+    background-color: #21263f;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.1), /* Ombre principale */
+            0 2px 6px rgba(255, 0, 0, 0.7), /* Ombre rouge */
+            0 4px 10px rgba(255, 0, 0, 0.8);
+
+}
+
+.inf-card-header {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.inf-card-header h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #f80903;
+
+}
+
+.inf-card-content p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Pour les petits écrans */
+@media screen and (max-width: 960px) {
+    .inf-card-container {
+        width: 100%;
+        justify-content: center; /* Pour centrer les éléments */
+    }
+
+    .inf-card {
+        margin: 0 5px 10px; /* Espacement entre les cartes sur les petits écrans */
+    }
+}
+

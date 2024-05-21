@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Timeline from 'react-calendar-timeline';
 import axios from "axios";
+import "./entretien.css"
 
 const Reservation = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -45,11 +46,11 @@ const Reservation = () => {
     };
 
     return (
-        <div>
+        <div className="card">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label>Type de Réparation</label>
-                    <select value={reparationTypeId} onChange={((e)=>setreparationTypeId(Number(e.target.value)))}>
+                    <select style={{marginLeft:'20px'}}value={reparationTypeId} onChange={((e)=>setreparationTypeId(Number(e.target.value)))}>
                         <option value="">Sélectionnez le type de réparation</option>
                         <option value={1}>Diagnostic</option>
                         <option value={2}>Pneumatiques</option>
@@ -59,14 +60,14 @@ const Reservation = () => {
                     </select>
                     {errors.reparationType && <span>Ce champ est requis.</span>}
                 </div>
-                <div>
+                <div style={{marginTop:'20px'}}>
                     <label>Date de Début</label>
-                    <input type="datetime-local" {...register("startDate", {required: true})} />
+                    <input style={{marginLeft:'100px'}} type="datetime-local" {...register("startDate", {required: true})} />
                     {errors.startDate && <span>Ce champ est requis.</span>}
                 </div>
-                <div>
-                    <label>Plaque d'immatriculation</label>
-                    <select {...register("plaqueImmatriculation", { required: true })}>
+                <div style={{marginTop:'20px'}}>
+                    <label >Plaque d'immatriculation</label>
+                    <select style={{marginLeft:'30px'}} {...register("plaqueImmatriculation", { required: true })}>
                         <option value="">Sélectionnez une voiture</option>
                         {user && user.voitures.map((car, index) => (
                             <option key={index} value={car.plaqueImmatriculation}>
@@ -76,7 +77,7 @@ const Reservation = () => {
                     </select>
                     {errors.plaqueImmatriculation && <span>Ce champ est requis.</span>}
                 </div>
-                <button type="submit">Réserver</button>
+                <button className="btn"   type="submit" style={{marginTop:'20px'}}>Réserver</button>
             </form>
         </div>
     );

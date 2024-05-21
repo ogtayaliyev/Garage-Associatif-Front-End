@@ -4,10 +4,13 @@ import "../Styles/cars.css";
 import gar5 from "../img/gar5.jpg";
 import herobanner from "../img/herobanner.png";
 import img2 from "../img/img2.jpg";
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const Cars = () => {
     const { register, handleSubmit } = useForm();
     const [cars, setCars] = useState([]);
+    const [startIndex, setStartIndex] = useState(0);
+    const carsPerPage = 6;
 
     useEffect(() => {
         fetchCars();
@@ -30,6 +33,18 @@ const Cars = () => {
         console.log(data);
     };
 
+    const handleNextPage = () => {
+        // Déplacer l'indice de début au prochain groupe de voitures
+        setStartIndex(startIndex + carsPerPage);
+    };
+
+    const handlePrevPage = () => {
+        // Déplacer l'indice de début à la page précédente
+        setStartIndex(startIndex - carsPerPage);
+    };
+
+    const visibleCars = cars.slice(startIndex, startIndex + carsPerPage);
+
     return (
         <main className="cars">
             <article>
@@ -48,9 +63,9 @@ const Cars = () => {
                         <h1 className="section-subtitle :dark">Our car brands</h1>
                     </div>
                     <div className="properties-container container">
-                        {cars.map((car) => (
+                        {visibleCars.map((car, index) => (
                             <div className="box" key={car.id}>
-                                <img src={img2} alt={car.voitures.model.model_nom} />
+                                <img src={img2} alt={car.voitures.model.model_nom}/>
                                 <h3>{car.voitures.kilometrage}</h3>
                                 <div className="content">
                                     <div className="text">
@@ -64,6 +79,18 @@ const Cars = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                    <div className="nav-buttons">
+                        {startIndex > 0 && (
+                            <button className="nav-button" onClick={handlePrevPage}>
+                                <FaArrowLeft size={48}/>
+                            </button>
+                        )}
+                        {(startIndex + carsPerPage) < cars.length && (
+                            <button className="nav-button" onClick={handleNextPage}>
+                                <FaArrowRight size={48}/>
+                            </button>
+                        )}
                     </div>
                 </section>
             </article>

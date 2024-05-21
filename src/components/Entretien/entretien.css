@@ -1,0 +1,24 @@
+.card {
+    background-color: #21263f;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    width: 600px;
+    box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.1), /* Ombre principale */
+            0 2px 6px rgba(255, 0, 0, 0.7), /* Ombre rouge */
+            0 4px 10px rgba(255, 0, 0, 0.8);
+
+}
+.box-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto; /* Pour centrer le conteneur */
+    margin-top: 30px;
+    font-family: var(--ff-chakra-petch);
+}
+label{
+    color: white;
+    font-size: 2rem;
+}

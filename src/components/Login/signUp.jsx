@@ -42,37 +42,57 @@ function SignUp(props) {
             <h1>Sign Up</h1>
             <form onSubmit={handleSubmit(save)}>
                 <label htmlFor="signup-nom">Nom*</label>
-                <input type="text" id="signup-nom" required autoComplete="off" {...register("nom", {required: true})}/>
+                <input type="text" id="signup-nom" required autoComplete="off" {...register("nom", {
+                    required: true,
+                    maxLength: 10
+                })}/>
                 {errors.nom && <p className="error-message">Le nom est requis.</p>}
-                <label htmlFor="signup-prenom">Prenom*</label>
+
+                <label htmlFor="signup-prenom">Prénom*</label>
                 <input type="text" id="signup-prenom" required
-                       autoComplete="off" {...register("prenom", {required: true})}/>
+                       autoComplete="off" {...register("prenom", {required: true, pattern: /^[A-Za-z]+$/i})}/>
                 {errors.prenom && <p className="error-message">Le prénom est requis.</p>}
+
                 <label htmlFor="signup-adresse">Adresse*</label>
                 <input type="text" id="signup-adresse" required
-                       autoComplete="off" {...register("adresse", {required: true})}/>
-                <label htmlFor="signup-phone">Phone Number*</label>
-                <input type="text" id="signup-phone" required
-                       autoComplete="off" {...register("phone_number", {required: true})}/>
+                       autoComplete="off" {...register("adresse", {required: true, minLength: 5})}/>
+                {errors.adresse && <p className="error-message">L'adresse est requis.</p>}
+
+                <label htmlFor="signup-phone">Numéro de téléphone*</label>
+                <input type="text" id="signup-phone" required autoComplete="off" {...register("phone_number", {
+                    required: true,
+                    pattern: /^(\+[0-9]{1,3}[-\s]?)?([0-9]{10})$/
+
+                })}/>
+                {errors.phone_number && <p className="error-message">Le numéro de téléphone est requis.</p>}
+
                 <label htmlFor="signup-email">Email*</label>
-                <input type="email" id="signup-email" required
-                       autoComplete="off" {...register("email", {required: true})}/>
+                <input type="email" id="signup-email" required autoComplete="off" {...register("email", {
+                    required: true,
+                    pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                })}/>
                 {errors.email && <p className="error-message">L'email est requis.</p>}
-                <label htmlFor="signup-password">Password*</label>
+
+                <label htmlFor="signup-password">Mot de passe*</label>
                 <div className="password-input">
                     <input type={passwordShown ? 'text' : 'password'} id="signup-password" required
-                           autoComplete="off" {...register("password", {required: true})}/>
+                           autoComplete="off" {...register("password", {
+                        required: true,
+                        pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/
+                    })}/>
+                    {errors.password && <p className="error-message">Le mot de passe est requis.</p>}
                     <i onClick={togglePasswordVisibility}>{eye}</i>
                 </div>
-                {errors.password && <p className="error-message">Le mot de passe est requis.</p>}
+
                 <h3 className="required-fields">*Tous les champs sont obligatoires</h3>
                 <button type="submit" className="btn" disabled={isSubmitting}>
                     {isSubmitting ? 'En cours...' : 'Sign Up'}
                 </button>
-                <p>Veuillez procéder à l'activation de votre compte en utilisant le code envoyé à votre
-                    adresse e-mail.</p>
+                <p>Veuillez procéder à l'activation de votre compte en utilisant le code envoyé à votre adresse
+                    e-mail.</p>
             </form>
         </div>
+
     );
 }
 
