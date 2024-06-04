@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import { FaEuroSign } from 'react-icons/fa';
-import { FaTrash } from 'react-icons/fa';
+import { FaTrash ,FaTimesCircle} from 'react-icons/fa';
 
 
 
@@ -12,6 +12,7 @@ import herobanner from "../img/herobanner.png";
 import gar5 from "../img/gar5.jpg";
 import car from "../img/oktay.png";
 import profilcar from"../img/rectangle-800.png"
+import FloatingButton from "../components/Buttons/FloatingButton";
 
 const Profil = () => {
     const [user, setUser] = useState(null);
@@ -32,9 +33,8 @@ const Profil = () => {
     const handleCarChange = event => {
         const selectedPlaque = event.target.value;
         setSelectedCar(selectedPlaque);
-        const selectedCarInfo = user?.voitures.find(car => car.plaqueImmatriculation === selectedPlaque);
+        const selectedCarInfo = user?.voitures.find(car => car.plaqueImmatriculation === selectedPlaque && car.etatVente === false);
         setSelectedCarData(selectedCarInfo);
-
         setCarModalVisible(true);
         setSelectedLocationBoxData(false)
         setEntretienModalVisible(false)
@@ -98,10 +98,12 @@ const Profil = () => {
         window.location.href = "/home";
     };
 
-    const suprimer = async (carId) =>{
+    const annuler = async (carId) => {
         const token = localStorage.getItem('bearer');
         try {
-            const response = await axios.delete(`http://localhost:8080/api/voitures/${carId}`, {
+            const response = await axios.put(`http://localhost:8080/api/voitures/${carId}`, {
+                etatVente: true  // Mettez les données directement ici
+            }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -114,6 +116,44 @@ const Profil = () => {
         }
     }
 
+    const locAnullation = async (locationBoxId) => {
+        const token = localStorage.getItem('bearer');
+        const payload = { etatLocation: 'annule' };
+
+        try {
+            await axios.put(`http://localhost:8080/api/locationbox/${locationBoxId}`, payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            alert("Location annulée avec succès.");
+            window.location.reload();
+        } catch (error) {
+            console.error('Erreur lors de l\'annulation de la location:', error);
+            // Gérer l'erreur ici, par exemple afficher un message à l'utilisateur
+        }
+    };
+    const repAnnulation = async (reparationId) => {
+        const token = localStorage.getItem('bearer');
+        const payload = { etatReparation: 'annulé' };
+
+        try {
+            await axios.put(`http://localhost:8080/api/make/${reparationId}`, payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            alert("Reparation annulée avec succès.");
+            window.location.reload();
+        } catch (error) {
+            console.error('Erreur lors de l\'annulation de la location:', error);
+            // Gérer l'erreur ici, par exemple afficher un message à l'utilisateur
+        }
+    };
+
+    const filteredCars = user?.voitures.filter(car => car.etatVente === true);
 
     return (
         <main className="profil">
@@ -157,11 +197,10 @@ const Profil = () => {
                         </div>
                     )}
 
-                    <div className="close-icons-container">
-                        <span className="close-icon" onClick={() => setCarModalVisible(false)}><FaTimes/></span>
-                        <span className="close-icon" onClick={() => {
-                            suprimer(selectedCarData.id)
-                        }}><FaTrash/></span>
+                    <div className="close-icons-container" >
+                        <span className="close-icon"  onClick={() => setCarModalVisible(false)}><FaTimes/></span>
+                        <span className="close-icon" onClick={() => { annuler(selectedCarData.id)}}><FaTrash/></span>
+
                     </div>
 
                 </div>
@@ -188,7 +227,13 @@ const Profil = () => {
                             </label>
                         </div>
                     )}
-                    <span className="close-icon" onClick={() => setLocationModalVisible(false)}><FaTimes/></span>
+                    <div className="close-icons-container">
+                        <span className="close-icon" onClick={() => setLocationModalVisible(false)}><FaTimes/></span>
+                        <span className="close-icon" onClick={() => locAnullation(selectedLocationBoxData.id)}>
+                            <FaTrash/>
+                        </span>
+
+                    </div>
                 </div>
             </div>
 
@@ -204,7 +249,7 @@ const Profil = () => {
                             </label>
                             <label>
                                 Durée:
-                                <p>{selectedEntretienData.duree} heures</p>
+                                <p>{selectedEntretienData.duree} minutes</p>
                             </label>
                             <label>
                                 Voiture:
@@ -220,7 +265,13 @@ const Profil = () => {
                             </label>
                         </div>
                     )}
-                    <span className="close-icon" onClick={() => setEntretienModalVisible(false)}><FaTimes/></span>
+                    <div className="close-icons-container">
+                        <span className="close-icon" onClick={() => setEntretienModalVisible(false)}><FaTimes/></span>
+                        <span className="close-icon" onClick={() => repAnnulation(selectedEntretienData.id)}>
+                            <FaTrash/>
+                        </span>
+
+                    </div>
                 </div>
             </div>
 
@@ -230,7 +281,7 @@ const Profil = () => {
                          id="home">
                     <div className="container">
                         <div className="hero-content">
-                            <p className="section-text"></p>
+                        <p className="section-text"></p>
                         </div>
                         <figure className="hero-banner" style={{width: '1228', height: '789'}}>
                             <img src={herobanner} style={{width: '28', height: '9'}} alt="red motor vehicle"/>
@@ -241,6 +292,7 @@ const Profil = () => {
 
                 <section id="about" className="section about has-before" aria-labelledby="about-label">
                     <div className="container">
+
                         <div className="about-content">
 
                             <img className="image-ronde" src={car} alt="photo de profil utilisateur"/>
@@ -251,77 +303,66 @@ const Profil = () => {
                                 <li>Portable : {user?.phone_number || 'N/A'}</li>
                                 <li>Mail : {user?.email || 'N/A'}</li>
                             </ul>
-
-                            <label className='list'>
-                                Sélectionnez votre voiture par plaque d'immatriculation:
-                                <br/>
-                                <select value={selectedCar} onChange={handleCarChange}>
-                                    <option value="">Sélectionnez une voiture</option>
-                                    {user?.voitures.map((car, index) => (
-                                        <option key={index} value={car.plaqueImmatriculation}>
-                                            {car.plaqueImmatriculation}
-                                        </option>
-                                    ))}
-                                </select>
-                            </label>
-                            <br/>
-                            <label className='list'>
-                                Sélectionnez une location par date:
-                                <br/>
-                                <select value={selectedLocationBox} onChange={handleLocationBoxChange}>
-                                    <option value="">Sélectionnez votre location</option>
-                                    {user?.locationBoxes.map((box, index) => (
-                                        <option key={index} value={box.startDate}>
-                                            {box.startDate}
-                                        </option>
-                                    ))}
-                                </select>
-                            </label> <br/>
-                            <label className='list'>
-                                Sélectionnez une entretien par date:
-                                <br/>
-                                <select value={selectedEntretien} onChange={handleEntretienChange}>
-                                    <option value="">Sélectionnez votre entretien</option>
-                                    {user?.reparations.map((reparations, index) => (
-                                        <option key={index} value={reparations.startDate}>
-                                            {reparations.startDate}
-                                        </option>
-                                    ))}
-                                </select>
-                            </label>
-
-                            <br/>
-
                         </div>
-
-
-                        <div className="btn-container">
-                            <a href="/garagebox" className="btn">
-                                <span className="span">Location</span>
-                            </a>
-                            <br/>
-                            <a href="/reservationentretien" className="btn">
-                                <span className="span">Entretien</span>
-                            </a>
-                            <br/>
-                            <a href="/contact" className="btn">
-                                <span className="span">Contact</span>
-                            </a>
-                            <br/>
-                            <a href="/modif" className="btn">
-                                <span className="span">Modifier</span>
-                            </a>
-                            <br/>
-                            <button className="btn" onClick={logout}>Log Out</button>
+                        <div className="floating-button-container">
+                            <FloatingButton/>
                         </div>
+                        <div className="inf-card-container">
+                            <div className="inf-card">
+                                <div className="inf-card-header">
+                                    <h2>Historique Entretien</h2>
+                                </div>
+                                <div className="inf-card-content">
+                                    <select value={selectedEntretien} onChange={handleEntretienChange}>
+                                        <option value="">Sélectionnez votre entretien</option>
+                                        {user?.reparations.map((reparations, index) => (
+                                            <option key={index} value={reparations.startDate}>
+                                                {reparations.startDate}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="inf-card">
+                                <div className="inf-card-header">
+                                    <h2>Historique Location</h2>
+                                </div>
+                                <div className="inf-card-content">
+                                    <select value={selectedLocationBox} onChange={handleLocationBoxChange}>
+                                        <option value="">Sélectionnez votre location</option>
+                                        {user?.locationBoxes.map((box, index) => (
+                                            <option key={index} value={box.startDate}>
+                                                {box.startDate}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="inf-card">
+                                <div className="inf-card-header">
+                                    <h2>Mes Voitures</h2>
+                                </div>
+                                <div className="inf-card-content">
+                                    <select value={selectedCar} onChange={handleCarChange}>
+                                        <option value="">Sélectionnez une voiture</option>
+                                        {user?.voitures.filter(car => car.etatVente === false).map((car, index) => (
+                                            <option key={index} value={car.plaqueImmatriculation}>
+                                                {car.plaqueImmatriculation}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+
                     </div>
+                </div>
+            </section>
 
-                </section>
+        </article>
 
-            </article>
-
-        </main>
-    );
+</main>
+)
+    ;
 };
 
 export default Profil;

@@ -60,7 +60,10 @@ input[type='password'] {
     width: 30%;
 }
 
-
+label{
+    color: #020b3b;
+    font-size: 2rem;
+}
 i:hover {
     color: #00fcb6;
     cursor: pointer;

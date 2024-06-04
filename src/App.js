@@ -19,7 +19,17 @@ import Forgotpassword from "./Pages/forgotpassword";
 
 
 function App() {
-    
+    useEffect(() => {
+        const handlePopstate = () => {
+            window.location.reload();
+        };
+
+        window.addEventListener('popstate', handlePopstate);
+
+        return () => {
+            window.removeEventListener('popstate', handlePopstate);
+        };
+    }, []);
     return (
 
         <div className="App">

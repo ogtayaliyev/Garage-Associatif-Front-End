@@ -49,7 +49,7 @@ const HeaderNavbar = () => {
                 <nav className={`navbar ${isActive ? 'active' : ''}`} data-navbar>
                     <ul className="navbar-list">
                         <li>
-                            <a href="/home" className="navbar-link">Acuueil</a>
+                            <a href="/home" className="navbar-link">Accueil</a>
                         </li>
                         <li>
                             <a href="/apropos" className="navbar-link">A Propos</a>

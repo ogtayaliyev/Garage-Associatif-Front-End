@@ -46,7 +46,7 @@
 }
 
 .properties-container .box h3 {
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 600;
     float: right;
 }
@@ -62,7 +62,7 @@
 }
 
 .properties-container .box .content .text p {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
 }
 
 .properties-container .box .content .icon .icon {
@@ -81,4 +81,17 @@
     font-size: 12px;
     font-weight: 500;
     margin-left: 4px;
+}
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-button {
+    margin: 0 10px;
+    color: #f80903;
+}
+
+.nav-button:hover {
+    color: #ffffff;
 }

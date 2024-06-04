@@ -2,10 +2,7 @@ import React, {useState} from 'react';
 import gar5 from "../img/gar5.jpg";
 import herobanner from "../img/herobanner.png";
 import GarageBoxReservation from "../components/Reservation/GarageBoxReservation";
-import box2 from "../img/box2.png";
-import box3 from "../img/box3.jpeg";
-import box4 from "../img/box4.jpeg";
-import box5 from "../img/box5.png";
+
 import "../Styles/garagebox.css"
 
 const Garagebox = () => {

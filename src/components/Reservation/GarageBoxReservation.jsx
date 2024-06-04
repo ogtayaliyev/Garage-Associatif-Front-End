@@ -70,55 +70,55 @@ const GarageBoxReservation = () => {
      return (
          <div className="reservation_container">
              <div className="container2">
-                 <h2 className="title2">Réserver une box</h2>
+                 <h2 className="titlegaragebox">Réserver une box</h2>
+                 <p className="info-text flashing-text">La réservation est limitée à 3 heures à partir de
+                     l'heure de début sélectionnée.</p>
                  <form onSubmit={handleSubmit}>
-                     <div>
-                     <div>
-                         <label className="content2">Sélectionnez la date de début :</label>
-                         <Calendar
-                             onChange={handleDateChange}
-                             value={startDate}
-                             minDate={new Date()} // Limiter la sélection à partir de la date actuelle
-                         />
-                     </div>
+                     <div className="calendar-container">
+                         <div className="calendar">
+                             <label className="content2garagebox">Sélectionnez la date de début :</label>
+                             <Calendar
+                                 onChange={handleDateChange}
+                                 value={startDate}
+                                 minDate={new Date()} // Limiter la sélection à partir de la date actuelle
+                             />
+                         </div>
 
-                     <p className="info-text">La réservation est limitée à 3 heures à partir de l'heure de début
-                         sélectionnée.</p>
-                     <div>
-                         <label className="content">Heure de début :</label>
-                         <input
-                             type="time"
-                             value={startTime}
-                             onChange={(e) => setStartTime(e.target.value)}
-                             required
-                         />
-                     </div>
+                         <div>
+                             <label className="contentgaragebox">Heure de début :</label>
+                             <input
+                                 type="time"
+                                 value={startTime}
+                                 onChange={(e) => setStartTime(e.target.value)}
+                                 required
+                             />
+                         </div>
 
-                     <div>
-                         <label className="content">Date et heure de fin :</label>
-                         <input
-                             type="date"
-                             value={endDate.toISOString().split('T')[0]} // Tarihi al ve ISO 8601 formatına uygun şekilde göster
-                             onChange={(e) => setEndDate(new Date(e.target.value))}
-                             required
-                         />
-                         <input
-                             type="time"
-                             value={endTime}
-                             onChange={(e) => setEndTime(e.target.value)}
-                             required
-                         />
-                     </div>
-                     <div>
-                         <label className="content2">Type de box :</label>
-                         <select value={boxId} onChange={(e) => setBoxId(Number(e.target.value))}>
-                             <option value={1}>Petit</option>
-                             <option value={2}>Normal</option>
-                             <option value={3}>Grand</option>
-                             <option value={4}>Très grand</option>
-                         </select>
-                     </div>
-                     <button className="button2" type="submit">Réserver</button>
+                         <div>
+                             <label className="contentgaragebox">Date et heure de fin :</label>
+                             <input
+                                 type="date"
+                                 value={endDate.toISOString().split('T')[0]} // Tarihi al ve ISO 8601 formatına uygun şekilde göster
+                                 onChange={(e) => setEndDate(new Date(e.target.value))}
+                                 required
+                             />
+                             <input
+                                 type="time"
+                                 value={endTime}
+                                 onChange={(e) => setEndTime(e.target.value)}
+                                 required
+                             />
+                         </div>
+                         <div>
+                             <label className="content2garagebox">Type de box :</label>
+                             <select value={boxId} onChange={(e) => setBoxId(Number(e.target.value))}>
+                                 <option value={1}>Petit</option>
+                                 <option value={2}>Normal</option>
+                                 <option value={3}>Grand</option>
+                                 <option value={4}>Très grand</option>
+                             </select>
+                         </div>
+                         <button className="button2" type="submit">Réserver</button>
                      </div>
                  </form>
              </div>

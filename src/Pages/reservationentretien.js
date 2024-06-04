@@ -138,8 +138,8 @@ const Reservationentretien = () => {
                                 </div>
                             </li>
                         </ul>
+<div className="box-container"><Reservation/></div>
 
-                        <Reservation/>
                     </div>
                 </section>
 

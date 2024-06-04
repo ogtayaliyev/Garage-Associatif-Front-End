@@ -1,0 +1,100 @@
+.floating-button-container {
+    position: relative;
+    display: flex;
+justify-content: center}
+
+.expanded-buttons {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Değişti */
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    top: calc(50% - 200px); /* Değişti */
+    left: calc(50% - 200px); /* Değişti */
+}
+
+.sub-button {
+    width: 90px; /* Değişti */
+    height: 40px; /* Değişti */
+    border-radius: 20%;
+    background-color: #f80903;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    position: absolute; /* Yeni eklendi */
+}
+
+.sub-button:nth-child(1) {
+    top: 80px;
+    left: 10px;
+}
+
+.sub-button:nth-child(2) {
+    top: 80px;
+    right: 10px;
+}
+
+.sub-button:nth-child(3) {
+    bottom: 50px;
+    left: 10px;
+}
+
+.sub-button:nth-child(4) {
+    bottom: 50px;
+    right: 10px;
+}
+.floating-button-container h2{
+    margin-top: 40px;
+}
+
+.floating-button-image {
+    width: 200px;
+    height: 100px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: box-shadow 0.3s ease; /* Transition douce pour l'effet hover */
+}
+
+.floating-button-image:hover {
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.7); /* Ombre rouge plus prononcée sur le survol */
+}
+@media screen and (max-width: 600px) {
+    .expanded-buttons {
+        flex-direction: column;
+        justify-content: flex-start; /* Değişti: Düğmelerin başlangıç noktasına yaslanmasını sağlar */
+        align-items: center; /* Değişti: Düğmeleri yatay hizada değil, dikey hizada hizalar */
+        width: 90%;
+        top: auto; /* Değişti: Önceden merkezden konumlandırılmıştı, bu yüzden otomatik olarak pozisyonlanmalıdır */
+        left: 50%;
+        transform: translateX(-50%); /* Değişti: Sadece yatay eksende kaydırma yapar */
+    }
+
+    .sub-button {
+        position: static; /* Değişti: Pozisyonu statik olarak ayarlanır, özel pozisyonlama kaldırılır */
+        margin: 5px 0; /* Değişti: Düğmeler arasındaki dikey boşluk */
+    }
+
+    .floating-button-image {
+        position: relative; /* Değişti: Resmin pozisyonu artık otomatik olmalı */
+        margin-top: 20px; /* Değişti: Resmin yukarıda biraz boşluk bırakması */
+        box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.9); /* Değişmedi: Reddedilmiş kutu gölgesi kalır */
+        z-index: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sub-button {
+        font-size: 10px; /* Ajuster encore la taille de police pour les écrans très petits */
+    }
+}

@@ -25,7 +25,7 @@ function CarEdit(props) {
     const selectedMarqueId = watch("marque.id")
     const onSubmit = async (data) =>{
         const token = localStorage.getItem('bearer');
-        const response = await axios.post('http://localhost:8080/api/addUtilisateureVoiture', data, {
+        const response = await axios.post('http://localhost:8080/api/voitures', data, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -79,10 +79,10 @@ function CarEdit(props) {
     return (
 
 
-        <div className="car-container">
+        <div className="car-container" >
             <h2>Ajouter une voiture</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>
+            <form onSubmit={handleSubmit(onSubmit)} >
+                <label style={{color:'white'}}>
                     Marque:
                     <select {...register("marque.id", { required: true })}>
                         <option value="">Sélectionnez une marque</option>
@@ -93,7 +93,7 @@ function CarEdit(props) {
                         ))}
                     </select>
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Modèle:
                     <select  {...register("model.id", { required: true })}>
                         <option value="">Sélectionnez un modèle</option>
@@ -103,35 +103,35 @@ function CarEdit(props) {
                             </option>
                         ))}
                     </select>
-                </label>
-                <label>
+                </label >
+                <label style={{color:'white'}}>
                     Plaque Immatriculation:
                     <input type="text"  {...register("plaqueImmatriculation", { required: true })}/>
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Couleur:
                     <input type="text" {...register("couleur", { required: true })}/>
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Kilometrage:
                     <input type="text" {...register("kilometrage", { required: true })}/>
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Boite:
                     <input type="text" {...register("boite", { required: true })}/>
-                </label>
-                <label>
+                </label >
+                <label style={{color:'white'}}>
                     Carroserie:
                     <input type="text" {...register("carroserie", { required: true })}/>
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Anne Fabricaton:
                     <input type="text" {...register("anne_fabrication", { required: true })}/>
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Carburant:
                     <input type="text" {...register("carburant", { required: true })}/>
-                </label>
+                </label >
                 <button type="submit">Ajouter</button>
             </form>
         </div>

@@ -1,64 +1,104 @@
-.title2 {
-    text-align: center;
+/* Styles pour le conteneur principal */
+.reservation_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Styles pour le conteneur intérieur */
+.container2 {
+    background-color: #1a2642; /* Couleur de fond */
+    padding: 20px; /* Espacement intérieur */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.1), /* Ombre principale */
+            0 2px 6px rgba(255, 0, 0, 0.7), /* Ombre rouge */
+            0 4px 10px rgba(255, 0, 0, 0.8);
+    margin-bottom: 20px; /* Marge en bas */
+    max-width: 600px; /* Largeur maximale */
+}
+
+/* Styles pour le titre */
+.titlegaragebox {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Styles pour le paragraphe d'information */
+.info-text {
     font-size: 24px;
+    color: whitesmoke;
     margin-bottom: 20px;
 }
 
-.container2 {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+/* Styles pour le calendrier */
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.content2 {
-    display: block;
+.calendar {
+    margin-bottom: 20px;
+}
+
+/* Styles pour les étiquettes */
+.content2garagebox,
+.contentgaragebox {
+    font-size: 18px;
+    color: white ;
     margin-bottom: 10px;
 }
 
-.input2 {
-    width: calc(50% - 5px);
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 8px;
-}
-
-.select2 {
+/* Styles pour les champs de saisie */
+input[type="time"],
+input[type="date"] {
     width: 100%;
-    margin-bottom: 10px;
     padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
+/* Styles pour le bouton de réservation */
 .button2 {
-    background-color: #4CAF50;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 0%;
 }
+
+.button2:hover {
+    background-color: #0056b3;
+}
+
+/* Styles pour la grille de boîtes */
 .boxes-grid {
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Utilisation de auto-fit pour ajuster dynamiquement la largeur des colonnes */
-    gap: 20px; /* Ajustez selon vos besoins */
+    display: flex;
+    justify-content: center;
 }
 
 .box-image {
-    width: 400px; /* Pour s'adapter dynamiquement à la taille du conteneur */
-    height: 200px; /* Pour conserver les proportions */
+    width: 300px;
+    height: 150px;
+    margin: 0 10px;
     cursor: pointer;
-    padding-left: 40px;
-
+    border-radius: 5px;
+    transition: transform 0.3s ease;
 }
 
-.box-image :hover{
-
+.box-image:hover {
+    transform: scale(1.1); /* Animation de survol */
 }
+
 @media screen and (max-width: 600px) {
     .input2 {
         width: 100%;

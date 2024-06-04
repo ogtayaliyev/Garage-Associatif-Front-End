@@ -79,24 +79,24 @@ function Modification(props) {
     return (
         <div className="form-container">
             <form onSubmit={handleSubmit(onSubmit)}>
-                <label>
+                <label style={{color:'white'}}>
                     Nom:
                     <input type="text" name="nom" value={userData.nom} onChange={e => handleFieldUpdate("nom", e.target.value)} />
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Prénom:
                     <input type="text" name="prenom" value={userData.prenom} onChange={e => handleFieldUpdate("prenom", e.target.value)} />
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Email:
                     <input type="email" name="email" value={userData.email} onChange={e => handleFieldUpdate("email", e.target.value)} />
                 </label>
-                <label>
+                <label style={{color:'white'}}>
                     Adresse:
                     <textarea name="adresse" value={userData.adresse} onChange={e => handleFieldUpdate("adresse", e.target.value)} />
                 </label>
 
-                <label>
+                <label style={{color:'white'}}>
                     Sélectionnez une voiture par plaque d'immatriculation:
                     <select value={selectedCar} onChange={handleCarChange}>
                         <option value="">Sélectionnez une voiture</option>
