@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b3d52b5e.css",
+    "main.js": "/static/js/main.bc6a5cc3.js",
+    "static/media/box5.png": "/static/media/box5.ab32df3cd92ae7add11d.png",
+    "static/media/box2.png": "/static/media/box2.e5dd4ba31989199d0b43.png",
+    "static/media/box3.jpeg": "/static/media/box3.27a11da969a05709a8c0.jpeg",
+    "static/media/box4.jpeg": "/static/media/box4.27a11da969a05709a8c0.jpeg",
+    "static/media/oktay.png": "/static/media/oktay.e7f8a18a6a419200501f.png",
+    "static/media/garagelogo.png": "/static/media/garagelogo.7abdae64307058c9ada6.png",
+    "static/media/image-30.png": "/static/media/image-30.b9f70dd6ec22d1193234.png",
+    "static/media/aboutabsbaner.png": "/static/media/aboutabsbaner.2a4049754e788b431f45.png",
+    "static/media/services5.png": "/static/media/services5.baf8c13b9904460acec2.png",
+    "static/media/footershape1.png": "/static/media/footershape1.577c35709412d84a14e9.png",
+    "static/media/servicebg.jpg": "/static/media/servicebg.2485588c114d661aac4b.jpg",
+    "static/media/img2.jpg": "/static/media/img2.8ac8972fe9610f04c587.jpg",
+    "static/media/herobanner.png": "/static/media/herobanner.ade8c6cf594735200884.png",
+    "static/media/car1122.png": "/static/media/car1122.2f01dd50eeea62a3320b.png",
+    "static/media/work1.jpg": "/static/media/work1.0b0c5cce7abf55b1c9eb.jpg",
+    "static/media/separator.png": "/static/media/separator.c31d16f5986e6b44316c.png",
+    "static/media/aboutbanner.png": "/static/media/aboutbanner.48ca8797bf8bc4300d2c.png",
+    "static/media/gar5.jpg": "/static/media/gar5.5e07354aaf53aad631a6.jpg",
+    "static/media/work2.jpg": "/static/media/work2.5cbc748fadb41c5b3db4.jpg",
+    "static/media/herobg.jpg": "/static/media/herobg.4b145917eecb22bcf999.jpg",
+    "static/media/rectangle-800.png": "/static/media/rectangle-800.a4e91d16cd4b344f3962.png",
+    "static/media/Citroen.jpg": "/static/media/Citroen.4dc2447a7c3ae95b6b94.jpg",
+    "static/media/logo.png": "/static/media/logo.d8e76ae41c8c42fe6a87.png",
+    "static/media/instagram.svg": "/static/media/instagram.3cb25a03ce19d0208c7901352c44b7f4.svg",
+    "static/media/twitter.svg": "/static/media/twitter.99d738d208087ae435a7a823c6179378.svg",
+    "static/media/facebook.svg": "/static/media/facebook.80eb487441435f1dc18f0d4d7f7ae6dd.svg",
+    "index.html": "/index.html",
+    "main.b3d52b5e.css.map": "/static/css/main.b3d52b5e.css.map",
+    "main.bc6a5cc3.js.map": "/static/js/main.bc6a5cc3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b3d52b5e.css",
+    "static/js/main.bc6a5cc3.js"
+  ]
+}
