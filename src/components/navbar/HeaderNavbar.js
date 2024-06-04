@@ -4,7 +4,7 @@ import logo from "../../img/logo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import "./stylenavbar.css"
-import profil from "../../Pages/profil";
+
 
 const HeaderNavbar = () => {
     const [isActive, setIsActive] = useState(false);
