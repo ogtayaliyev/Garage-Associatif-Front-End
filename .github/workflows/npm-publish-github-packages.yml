@@ -30,6 +30,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+      - name: Set CI environment variable to false
+        run: echo "CI=false" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: npm install

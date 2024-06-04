@@ -29,10 +29,6 @@ const Cars = () => {
         }
     };
 
-    const onSubmit = (data) => {
-        console.log(data);
-    };
-
     const handleNextPage = () => {
         // Déplacer l'indice de début au prochain groupe de voitures
         setStartIndex(startIndex + carsPerPage);
