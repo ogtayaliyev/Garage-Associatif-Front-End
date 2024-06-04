@@ -35,7 +35,7 @@ jobs:
         run: npm install
 
       - name: Build the project
-        run: npm run build
+        run: npm run build --if-present
 
       - name: Archive build files
         run: tar -czvf build.tar.gz build
