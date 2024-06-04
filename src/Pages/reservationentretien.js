@@ -8,11 +8,6 @@ import services3 from "../img/services3.png";
 import services4 from "../img/services4.png";
 import services5 from "../img/services5.png";
 import services6 from "../img/services6.png";
-import hero from "../img/herobg.jpg";
-import aboutbanner from "../img/aboutbanner.png";
-import work1 from "../img/work1.jpg";
-import work2 from "../img/work2.jpg";
-import work3 from "../img/Citroen.jpg";
 import Reservation from "../components/Entretien/Reservation";
 
 const Reservationentretien = () => {

@@ -5,7 +5,6 @@ import "./entretien.css"
 
 const Reservation = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [startDate, setStartDate] = useState(new Date());
     const [user, setUser] = useState(null);
     const [reparationTypeId, setreparationTypeId] = useState(1);
 

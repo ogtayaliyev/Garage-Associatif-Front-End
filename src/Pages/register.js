@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+
 import '../Styles/style.css';
 import '../Styles/register.css';
 import gar5 from '../img/gar5.jpg';
@@ -12,7 +10,7 @@ import Login from "../components/Login/login";
 import CodeActivation from "../components/Login/codeActivation";
 import SignUp from "../components/Login/signUp";
 
-const eye = <FontAwesomeIcon icon={faEye} />;
+
 
 const Register = () => {
 
