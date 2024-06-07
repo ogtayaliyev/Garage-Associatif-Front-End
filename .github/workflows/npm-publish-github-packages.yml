@@ -30,6 +30,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+
       - name: Set CI environment variable to false
         run: echo "CI=false" >> $GITHUB_ENV
 
@@ -38,11 +39,6 @@ jobs:
 
       - name: Build the project
         run: npm run build --if-present
-
-      - name: Archive build files
-        run: tar -czvf build.tar.gz build
-
-
 
   deploy:
     name: Déployer l'application
@@ -56,6 +52,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          source: build/.
+          source: build/
           target: /var/www/mnsgarage/
-
