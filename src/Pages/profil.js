@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import { FaEuroSign } from 'react-icons/fa';
-import { FaTrash ,FaTimesCircle} from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 
 

@@ -1,0 +1,10 @@
+server {
+
+        server_name mnsgarage.local;
+        root /var/www/mnsgarage;
+        index index.html;
+        location / {
+
+                try_files $uri $uri/ =404;
+        }
+}

@@ -45,7 +45,8 @@ function SignUp(props) {
                 <input type="text" id="signup-nom" required autoComplete="off" {...register("nom", {
                     required: true,
                     maxLength: 10
-                })}/>
+                })}/>:wq
+
                 {errors.nom && <p className="error-message">Le nom est requis.</p>}
 
                 <label htmlFor="signup-prenom">Prénom*</label>

@@ -38,7 +38,6 @@ const HeaderNavbar = () => {
     };
 
 
-
     return (
         <header className="header">
             <div className="container">
