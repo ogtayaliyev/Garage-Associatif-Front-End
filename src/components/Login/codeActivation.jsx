@@ -10,7 +10,7 @@ function CodeActivation(props) {
     const activateAccount = async (data) => {
         setIsActivating(true);
         try {
-            await axios.post('http://localhost:8080/api/activation', {
+            await axios.post('/api/activation', {
                 code: data.verificationCode,
             });
             alert('Activation du compte réussie ! Vous pouvez maintenant vous connecter.');

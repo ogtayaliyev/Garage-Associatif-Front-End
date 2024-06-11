@@ -23,7 +23,7 @@ function Modification(props) {
     useEffect(() => {
         const token = localStorage.getItem('bearer');
 
-        axios.get('http://localhost:8080/api/profil', {
+        axios.get('/api/profil', {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -35,7 +35,7 @@ function Modification(props) {
                 console.error('Erreur lors de la récupération des données utilisateur:', error);
             });
 
-        axios.get('http://localhost:8080/api/voitures/marques', {
+        axios.get('/api/voitures/marques', {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
@@ -64,7 +64,7 @@ function Modification(props) {
 
     const onSubmit = async () => {
         const token = localStorage.getItem('bearer');
-        axios.put('http://localhost:8080/api/modifier', userData, {
+        axios.put('/api/modifier', userData, {
             headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {

@@ -15,7 +15,7 @@ const Reservation = () => {
                 Authorization: `Bearer ${token}`
             }
         };
-        axios.get('http://localhost:8080/api/profil', config)
+        axios.get('/api/profil', config)
             .then(response => setUser(response.data))
             .catch(error => console.error("Erreur lors de la récupération des données utilisateur :", error));
     }, []);
@@ -29,7 +29,7 @@ const Reservation = () => {
                     Authorization: `Bearer ${token}`
                 }
             };
-            const response = await axios.post('http://localhost:8080/api/make', {
+            const response = await axios.post('/api/make', {
                 reparationType: { id: reparationTypeId },
                 plaqueImmatriculation: data.plaqueImmatriculation,
                 startDate: data.startDate

@@ -18,7 +18,7 @@ function SignUp(props) {
     const save = async (data) => {
         setIsSubmitting(true);
         try {
-            await axios.post('http://localhost:8080/api/inscription', {
+            await axios.post('/api/inscription', {
                 nom: data.nom,
                 prenom: data.prenom,
                 email: data.email,

@@ -43,7 +43,7 @@ const GarageBoxReservation = () => {
                 startMinute: startMinute
             };
 
-            const response = await axios.post('http://localhost:8080/api/locationbox', reservationData, {
+            const response = await axios.post('/api/locationbox', reservationData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('bearer')}`
                 }

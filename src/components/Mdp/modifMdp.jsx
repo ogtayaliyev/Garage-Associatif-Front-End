@@ -9,7 +9,7 @@ function ModifMdp() {
 
     const sendResetEmail = async (data) => {
         try {
-            await axios.post('http://localhost:8080/api/modifier-mdp', { email: data.email });
+            await axios.post('/api/modifier-mdp', { email: data.email });
             alert("Vous allez recevoir un code d'activation. Veuillez vérifier votre adresse e-mail. ");
             setEmailSent(true);
             setEmail(data.email); // Store the email for later use
@@ -23,7 +23,7 @@ function ModifMdp() {
 
     const resetPassword = async (data) => {
         try {
-            await axios.post('http://localhost:8080/api/nouveau-mdp', {
+            await axios.post('/api/nouveau-mdp', {
                 email: data.email, // Use the stored email
                 code: data.code,
                 password: data.password

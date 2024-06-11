@@ -83,7 +83,7 @@ const Profil = () => {
                     }
                 };
 
-                const response = await axios.get('http://localhost:8080/api/profil', config);
+                const response = await axios.get('/api/profil', config);
                 setUser(response.data);
 
             } catch (error) {
@@ -97,7 +97,7 @@ const Profil = () => {
     const annuler = async (carId) => {
         const token = localStorage.getItem('bearer');
         try {
-            const response = await axios.put(`http://localhost:8080/api/voitures/${carId}`, {
+            const response = await axios.put(`/api/voitures/${carId}`, {
                 etatVente: true  // Mettez les données directement ici
             }, {
                 headers: {
@@ -117,7 +117,7 @@ const Profil = () => {
         const payload = { etatLocation: 'annule' };
 
         try {
-            await axios.put(`http://localhost:8080/api/locationbox/${locationBoxId}`, payload, {
+            await axios.put(`/api/locationbox/${locationBoxId}`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -135,7 +135,7 @@ const Profil = () => {
         const payload = { etatReparation: 'annulé' };
 
         try {
-            await axios.put(`http://localhost:8080/api/make/${reparationId}`, payload, {
+            await axios.put(`/api/make/${reparationId}`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'

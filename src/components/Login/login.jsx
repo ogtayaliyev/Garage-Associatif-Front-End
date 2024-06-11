@@ -20,7 +20,7 @@ function Login(props) {
 
     const onSubmit = async (data) => {
         try {
-            const response = await axios.post('http://localhost:8080/api/connexion', {
+            const response = await axios.post('/api/connexion', {
                 email: data.email,
                 password: data.password,
             });

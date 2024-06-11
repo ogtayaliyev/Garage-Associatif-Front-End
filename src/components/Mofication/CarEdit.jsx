@@ -25,7 +25,7 @@ function CarEdit(props) {
     const selectedMarqueId = watch("marque.id")
     const onSubmit = async (data) =>{
         const token = localStorage.getItem('bearer');
-        const response = await axios.post('http://localhost:8080/api/voitures', data, {
+        const response = await axios.post('/api/voitures', data, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -39,7 +39,7 @@ function CarEdit(props) {
 
 
 
-        axios.get('http://localhost:8080/api/voitures/marques', {
+        axios.get('/api/voitures/marques', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -58,7 +58,7 @@ function CarEdit(props) {
     useEffect(()=>{
         // Récupération des modèles pour la marque sélectionnée
         const token = localStorage.getItem('bearer');
-        axios.get(`http://localhost:8080/api/voitures/models?marqueId=${selectedMarqueId}`, {
+        axios.get(`/api/voitures/models?marqueId=${selectedMarqueId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
