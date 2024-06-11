@@ -17,7 +17,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          script: mkdir -p /opt/app/garage/front-garage
+          script: |
+            mkdir -p /var/www/mnsgaragefrt/
 
   build:
     runs-on: ubuntu-latest
