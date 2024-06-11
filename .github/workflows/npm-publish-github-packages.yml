@@ -28,3 +28,5 @@ jobs:
           script: |
             rm -rf /var/www/html/*   # Önceki dosyaları temizle (Opsiyonel)
             cp -r build/* /var/www/html/
+
+           eslint-disable
