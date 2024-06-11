@@ -17,7 +17,7 @@ const FloatingButton = () => {
     return (
         <div className="floating-button-container">
             <h2>Menu</h2>
-            {/* Bir düğme yerine bir resim kullanın */}
+            {/* Utilisation photo a la place de button */}
             <img
                 src={icon}
                 alt="Floating Button"

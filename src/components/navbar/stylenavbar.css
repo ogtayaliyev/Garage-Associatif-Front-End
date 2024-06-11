@@ -30,3 +30,15 @@
 .user-dropdown-menu ul li:hover {
     text-decoration: underline;
 }
+
+/* Default styles */
+.register-link a {
+    display: none;
+}
+
+/* Styles for small screens */
+@media (max-width: 768px) {
+    .register-link a {
+        display: block;
+    }
+}

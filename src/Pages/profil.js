@@ -85,6 +85,7 @@ const Profil = () => {
 
                 const response = await axios.get('http://localhost:8080/api/profil', config);
                 setUser(response.data);
+
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
@@ -92,11 +93,6 @@ const Profil = () => {
 
         fetchUserData();
     }, [navigate]);
-
-    const logout = () => {
-        localStorage.removeItem('jwtToken');
-        window.location.href = "/home";
-    };
 
     const annuler = async (carId) => {
         const token = localStorage.getItem('bearer');
