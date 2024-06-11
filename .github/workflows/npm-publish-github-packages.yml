@@ -40,6 +40,13 @@ jobs:
       - name: Build the project
         run: npm run build --if-present
 
+      - name: Verify build output
+        run: |
+          if [ ! -d "build" ] || [ -z "$(ls -A build)" ]; then
+            echo "Build directory is empty or does not exist."
+            exit 1
+          fi
+
       - name: List build directory contents
         run: ls -la build
 
