@@ -48,6 +48,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Create remote directory
+        run: ssh -i ${{ secrets.PRIVATE_KEY }} ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'mkdir -p /var/www/mnsgaragefrt'
       - name: Copy build files via SSH
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -56,4 +58,4 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           source: build/.
-          target: /var/www/mnsgaragefrt/
+          target: /var/www/mnsgarage/
